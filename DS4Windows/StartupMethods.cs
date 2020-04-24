@@ -13,7 +13,7 @@ namespace DS4WinWPF
     public static class StartupMethods
     {
         public static string lnkpath = Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\DS4Windows.lnk";
-        private static string taskBatPath = Path.Combine(DS4Windows.Global.exedirpath, "task.bat");
+        private static string taskBatPath = Path.Combine(DS4Windows.Global.exedirpath, "task.vbs");
 
         public static bool HasStartProgEntry()
         {
@@ -109,7 +109,7 @@ namespace DS4WinWPF
             TaskDefinition td = ts.NewTask();
             td.Triggers.Add(new LogonTrigger());
             string dir = DS4Windows.Global.exedirpath;
-            td.Actions.Add(new ExecAction($@"{dir}\task.bat",
+            td.Actions.Add(new ExecAction($@"{dir}\task.vbs",
                 "",
                 dir));
 
